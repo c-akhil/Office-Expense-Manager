@@ -1,0 +1,32 @@
+
+
+<form [formGroup]="form">
+  <div class="from-group" >
+        <label for="empname" > Emp Name </label>
+        <input
+          formControlName="empname"
+          id="empname"
+          type="text"
+          class="form-control">
+  </div>
+  <div class="from-group" >
+    <label for="empDesg" > Emp Desg </label>
+    <input
+      formControlName="empDesg"
+      id="empDesg"
+      type="text"
+      class="form-control">
+  </div>
+  <div class="from-group" >
+    <label for="empSal" > Emp Sal </label>
+    <input
+      formControlName="empSal"
+      id="empSal"
+      type="number"
+      class="form-control">
+  </div>
+
+  <button class="btn btn-primary" (click)="createEmp()" >Submit </button>
+
+
+</form>
