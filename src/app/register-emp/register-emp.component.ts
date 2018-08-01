@@ -7,27 +7,38 @@ import {Http} from "@angular/http";
   styleUrls: ['./register-emp.component.css']
 })
 export class RegisterEmpComponent implements OnInit {
-  private url: "http://localhost:8080/OfficeExpenseManager/activate/registration";
-  emp;
+  private url: "http://192.168.2.81:8080/OfficeExpenseManager/activate/registration";
+  emp:any;
   form= new FormGroup ({
-    empname:new FormControl(),
-    empDesg:new FormControl(),
-    empSal:new FormControl(),
+    name:new FormControl(),
+    designation:new FormControl(),
+    mobileNo:new FormControl(),
+    email:new FormControl(),
+    gender:new FormControl(),
+    password:new FormControl(),
+    
   });
 
-  // constructor(private http:Http) { 
-  //   http.get(this.url)
-  //     .subscribe(response => {
-  //     this.emp=response.json();
-  //     console.log(response.json);
-  //     });
-  // }
+  constructor(private http:Http) { 
+    // http.get(this.url)
+    //   .subscribe(response => {
+    //   this.emp=response.json();
+    //   console.log(response.json);
+    //   });
+  }
 
   ngOnInit() {
 
   }
   createEmp(){
     console.log(this.form.value);
+    this.http.post(this.url,JSON.stringify(this.form.value))
+    .subscribe(
+      response =>{
+        console.log(response);
+      }
+
+    )
   }
 
 }
