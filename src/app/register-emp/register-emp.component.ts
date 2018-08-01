@@ -1,6 +1,8 @@
+import { Emp } from './../emp';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl} from '@angular/forms';
 import {Http} from "@angular/http";
+
 @Component({
   selector: 'register-emp',
   templateUrl: './register-emp.component.html',
@@ -8,7 +10,7 @@ import {Http} from "@angular/http";
 })
 export class RegisterEmpComponent implements OnInit {
   private url: "http://192.168.2.81:8080/OfficeExpenseManager/activate/registration";
-  emp:any;
+ 
   form= new FormGroup ({
     name:new FormControl(),
     designation:new FormControl(),
@@ -31,8 +33,19 @@ export class RegisterEmpComponent implements OnInit {
 
   }
   createEmp(){
-    console.log(this.form.value);
-    this.http.post(this.url,JSON.stringify(this.form.value))
+    let emp={
+      "name":this.form.value.name,
+      "designation":this.form.value.designation,
+      "mobileNo":this.form.value.mobileNo,
+      "email":this.form.value.email,
+      "gender":this.form.value.gender,
+      "password":this.form.value.password
+      }
+    console.log(this.form.value.name);
+  
+    console.log(JSON.stringify(emp));
+   
+    this.http.post(this.url,JSON.stringify(emp))
     .subscribe(
       response =>{
         console.log(response);

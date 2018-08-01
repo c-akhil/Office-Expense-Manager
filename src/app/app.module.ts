@@ -8,6 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { GraphComponent } from './graph/graph.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InvalidComponent } from './invalid/invalid.component';
+import { UpdateComponent } from './update/update.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     RegisterEmpComponent,
     HomeComponent,
-    GraphComponent
+    GraphComponent,
+    InvalidComponent,
+    UpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RouterModule.forRoot([
           {
-            path:" ",
+            path:"",
             component:HomeComponent
           },
           {
@@ -37,7 +43,15 @@ import { HttpClientModule } from '@angular/common/http';
           },
           {
             path:"update",
-            component:RegisterEmpComponent
+            component:UpdateComponent
+          }, 
+          {
+            path:"login",
+            component:LoginComponent
+          },     
+          {
+            path:"**",
+            component:InvalidComponent
           },
 
     ]),
