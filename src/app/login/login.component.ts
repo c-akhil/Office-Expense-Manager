@@ -19,4 +19,21 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  login(email){
+    let emp={
+    "email":this.form.value.email,
+      "password":this.form.value.password
+      }
+   
+    console.log(JSON.stringify(emp));
+   
+    /* this.http.post(this.url,JSON.stringify(emp))
+    .subscribe(
+      response =>{
+        console.log(response.json());
+      }
+
+    ) */
+  }
+
 }
