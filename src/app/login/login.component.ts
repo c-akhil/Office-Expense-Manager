@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -14,26 +15,29 @@ export class LoginComponent implements OnInit {
     
   });
 
-  constructor() { }
+  constructor(private http:Http) { 
+
+   }
 
   ngOnInit() {
   }
 
   login(email){
     let emp={
-    "email":this.form.value.email,
+    "email":email,
       "password":this.form.value.password
       }
    
     console.log(JSON.stringify(emp));
    
-    /* this.http.post(this.url,JSON.stringify(emp))
+     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/activate/registration",emp)
     .subscribe(
       response =>{
         console.log(response.json());
+    
       }
 
-    ) */
+    ) 
   }
 
 }

@@ -1,4 +1,4 @@
-import { Emp } from "./../emp";
+
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Http } from "@angular/http";
@@ -13,6 +13,7 @@ export class RegisterEmpComponent implements OnInit {
 
   form = new FormGroup({
     name: new FormControl(),
+
     designation: new FormControl(),
     mobileNo: new FormControl(),
     email: new FormControl(),
@@ -41,8 +42,14 @@ export class RegisterEmpComponent implements OnInit {
 
     console.log(JSON.stringify(emp));
 
-    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/activate/registration", JSON.stringify(emp)).subscribe(response => {
+    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/activate/registration", emp).subscribe(response => {
       console.log(response.json());
+
+      console.log(response);
+
+      alert(response.json().statusMessage);
+     
+     
     });
   }
 }
