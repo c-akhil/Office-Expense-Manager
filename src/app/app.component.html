@@ -6,19 +6,19 @@
         <li class="nav-item " [ngClass]="{'active': (isSelected==1)}" routerLink="/" >
           <a class="nav-link" >Home</a>
         </li>
-        <li class="nav-item" routerLink="/update" [hidden]="!isLogin">
+        <li class="nav-item" routerLink="/update" [hidden]="!this.loginService.isLogin">
           <a class="nav-link" >Update</a>
         </li>
-        <li class="nav-item" routerLink="/register" [hidden]="isLogin">
+        <li class="nav-item" routerLink="/register" [hidden]="this.loginService.isLogin">
             <a class="nav-link" >Register</a>
         </li>
-        <li class="nav-item" routerLink="/login" [hidden]="isLogin">
+        <li class="nav-item" routerLink="/login" [hidden]="this.loginService.isLogin">
             <a class="nav-link" >Login</a>
           </li>
-        <li class="nav-item" routerLink="/graph" [hidden]="!isLogin">
+        <li class="nav-item" routerLink="/graph" [hidden]="!this.loginService.isLogin">
             <a class="nav-link" >Graph</a>
           </li>
-          <li class="nav-item"  [hidden]="!isLogin">
+          <li class="nav-item"  [hidden]="!this.loginService.isLogin">
             <a class="nav-link" >Logout</a>
           </li>
        

@@ -1,3 +1,4 @@
+import { LoginService } from './login.service';
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isSelected=1;
-  isLogin:boolean=false;
+  isLogin:boolean=this.loginService.isLogin;
+  constructor(private loginService:LoginService){
+    
+  }
+  
 }
