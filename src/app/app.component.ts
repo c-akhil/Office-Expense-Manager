@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isSelected=1;
-  isLogin:boolean=this.loginService.isLogin;
+  // isLogin:boolean=this.loginService.isLogin;
   constructor(private loginService:LoginService){
     
   }

@@ -8,7 +8,12 @@
           formControlName="name"
           id="name"
           type="text"
-          class="form-control">
+          class="form-control"
+          (change)="print()"
+        >
+  </div>
+  <div class="alert alert-danger" *ngIf="form.get('name').touched && form.get('name').invalid">
+    Invalid Name
   </div>
   <div class="form-group" >
     <label for="designation" > Emp designation</label>
@@ -16,16 +21,27 @@
       formControlName="designation"
       id="designation"
       type="text"
-      class="form-control">
+      class="form-control"
+      (change)="print()"
+    
+    >
   </div>
+  <div class="alert alert-danger" *ngIf="form.get('designation').touched && form.get('designation').invalid">
+      Invalid Designation
+    </div>
   <div class="form-group" >
     <label for="mobileNo" > Emp mobileNo </label>
     <input
       formControlName="mobileNo"
       id="mobileNo"
-      type="number"
-      class="form-control">
+      type="text"
+      class="form-control"
+      (change)="print()"
+    >
   </div> 
+  <div class="alert alert-danger" *ngIf="form.get('mobileNo').touched && form.get('mobileNo').invalid">
+      Invalid mobileNo
+    </div>
   <div class="form-group" >
     <label for="email" > Emp email </label>
     <input
@@ -33,14 +49,20 @@
       id="email"
       type="email"
       class="form-control">
+      
   </div>
+  <div class="alert alert-danger" *ngIf="form.get('email').touched && form.get('email').invalid">
+      Invalid email
+    </div>
   <div class="form-group" >
   <label for="gender" > Emp gender </label>
   <input
     formControlName="gender"
     id="gender"
     type="text"
-    class="form-control">
+    class="form-control"
+    (change)="print()"
+  >
 </div>
 <div class="form-group" >
   <label for="password" > Emp password </label>
@@ -48,7 +70,12 @@
     formControlName="password"
     id="password"
     type="password"
-    class="form-control">
+    class="form-control"
+    (change)="print()"
+  >
+  <div class="alert alert-danger" *ngIf="form.get('password').touched && form.get('password').invalid">
+      Invalid password
+    </div>
     <button class="btn btn-primary" (click)="createEmp()" >Submit </button>
 
 </div>

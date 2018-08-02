@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
    password:new FormControl(),
     
   });
-  //isLogin 
+  statusMessage:string='';
 
   constructor(private http:Http,private loginService:LoginService) { 
 
@@ -31,14 +31,16 @@ export class LoginComponent implements OnInit {
       }
    
     console.log(JSON.stringify(emp));
-   
-     this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/activate/login?email="+this.form.value.email+"&password="+this.form.value.password)
+     this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/login/login?email="+this.form.value.email+"&password="+this.form.value.password  )
     .subscribe(
       response =>{
+        this.statusMessage=response.json().statusMessage;
         console.log(response.json());
         if(response.json().statusCode==200)
         {
+          
           this.loginService.isLogin=true;
+          
           console.log("login success");
         }
     
