@@ -54,6 +54,20 @@
                           <div class="alert alert-danger" *ngIf="form.get('designation').touched && form.get('designation').invalid">
                               Invalid Designation
                             </div>
+                          
+                            <div class="form-group" >
+                              <label for="salary" > Salary </label>
+                              <input
+                                formControlName="salary"
+                                id="salary"
+                                minlength="3"
+                                maxlength="10"
+                                type="number"
+                                class="form-control"
+                                (change)="print()"
+                              >
+                            </div> 
+
                           <div class="form-group" >
                             <label for="mobileNo" > Mobile Number </label>
                             <input
