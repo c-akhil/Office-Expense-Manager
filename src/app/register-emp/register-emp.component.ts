@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Http } from "@angular/http";
@@ -15,7 +14,7 @@ export class RegisterEmpComponent implements OnInit {
     name: new FormControl("" ,Validators.required),
 
     designation: new FormControl("" ,Validators.required),
-    mobileNo: new FormControl("",[Validators.minLength(10),Validators.maxLength(10),Validators.required]),
+    mobileNo: new FormControl("",[Validators.required]),
     email: new FormControl("",[Validators.required,Validators.email]),
     gender: new FormControl("",Validators.required),
     password: new FormControl("",Validators.required)
