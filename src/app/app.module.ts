@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InvalidComponent } from './invalid/invalid.component';
 import { UpdateComponent } from './update/update.component';
 import { LoginComponent } from './login/login.component';
+import { ExpenseComponent } from './expense/expense.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     GraphComponent,
     InvalidComponent,
     UpdateComponent,
-    LoginComponent
+    LoginComponent,
+    ExpenseComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,11 @@ import { LoginComponent } from './login/login.component';
           {
             path:"login",
             component:LoginComponent
-          },     
+          },   
+          {
+            path:"expense",
+            component:ExpenseComponent
+          },  
           {
             path:"**",
             component:InvalidComponent

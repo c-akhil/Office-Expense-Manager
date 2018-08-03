@@ -9,7 +9,7 @@ import { Http } from "@angular/http";
   styleUrls: ["./register-emp.component.css"]
 })
 export class RegisterEmpComponent implements OnInit {
-  url: "http://192.168.2.81:8080/OfficeExpenseManager/activate/registration";
+  url:string= "http://192.168.2.81:8080/OfficeExpenseManager/registration/registration";
 
   form = new FormGroup({
     name: new FormControl("" ,Validators.required),
@@ -36,19 +36,21 @@ export class RegisterEmpComponent implements OnInit {
 
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
   createEmp() {
     let emp = {
       name: this.form.value.name,
       designation: this.form.value.designation,
       mobileNo: this.form.value.mobileNo,
-      email: this.form.value.email,
+      emailId: this.form.value.email,
       gender: this.form.value.gender,
       password: this.form.value.password
     };
     console.log(JSON.stringify(emp));
 
-    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/activate/registration", emp).subscribe(response => {
+    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/registration/registration", emp).subscribe(response => {
       console.log(response.json());
 
       console.log(response);

@@ -34,14 +34,16 @@ export class LoginComponent implements OnInit {
      this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/login/login?email="+this.form.value.email+"&password="+this.form.value.password  )
     .subscribe(
       response =>{
-        this.statusMessage=response.json().statusMessage;
-        console.log(response.json());
-        if(response.json().statusCode==200)
+        // console.log(response.json() );
+        if(response.json())
         {
           
           this.loginService.isLogin=true;
           
           console.log("login success");
+        }
+        else{
+          this.statusMessage="Invalid Password/Email";
         }
     
       }
