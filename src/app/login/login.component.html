@@ -21,7 +21,12 @@
                                   type="email"
                                   class="form-control">
                               </div>
-                              <div class="form-group" >
+                              <div class="alert alert-danger form-group" *ngIf="form.get('email').touched && form.get('email').invalid">
+                            
+                                Invalid Email
+  
+                            </div>
+                                <div class="form-group" >
                                 <!-- <label for="password" >Password </label> -->
                                 <input
                                   formControlName="password"
@@ -32,11 +37,14 @@
                                   <div *ngIf="statusMessage!=''" class="alert alert-danger">
                                     {{statusMessage}}
                                   </div>
-                              
-                                  
-                              </div>
+                                </div>
+                                <div class="alert alert-danger form-group" *ngIf="form.get('password').touched && form.get('password').invalid">
                             
-                                <button class="btn btn-primary" (click)="login(email)" >Login </button>
+                                Invalid Password
+  
+                                </div>
+                            
+                                <button class="btn btn-primary" (click)="login(email)" [disabled]="form.invalid" >Login </button>
                          
                             </form>
                         </div>
