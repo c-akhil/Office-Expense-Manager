@@ -38,7 +38,7 @@
                           type="text"
                           class="form-control"
                           [value]="emp.name"
-                          (change)="print()"
+                          (change)="emp.name=form.get('name').value"
                         >
                   </div>
                   <div class="form-group" >
@@ -49,7 +49,7 @@
                           type="text"
                           placeholder="Designation"
                           class="form-control"
-                          (change)="print()"
+                          (change)="emp.designation=form.get('designation').value"
                         
                         >
                         <option value="Dev" [selected]="emp.designation=='Dev'" >Dev</option>
@@ -77,7 +77,7 @@
                       type="number"
                       class="form-control"
                       [value]="emp.mobileNo"
-                      (change)="print()"
+                      (change)="emp.mobileNo=form.get('mobileNo').value"
                     >
                     <div class="form-group" >
                             <label for="email" > Email </label>
@@ -87,6 +87,7 @@
                               type="email"
                               class="form-control"
                               [value]="emp.emailId"
+                              (change)="emp.email=form.get('email').value"
                             >
                               
                     </div>
@@ -99,7 +100,7 @@
                               maxlength="10"
                               type="number"
                               class="form-control"
-                              (change)="print()"
+                              (change)="emp.salary=form.get('salary').value"
                               [value]="emp.salary"
                             >
                     </div> 
@@ -111,8 +112,8 @@
                               type="text"
                               placeholder="gender"
                               class="form-control"
-                              
-                              (change)="print()"
+                              (change)="emp.gender=form.get('gender').value"
+                            
                             
                             >
                             <option value="Male" [selected]="emp.gender=='Male'" >Male</option>
@@ -129,7 +130,7 @@
                                   id="password"
                                   type="password"
                                   class="form-control"
-                                  
+                                  (change)="emp.password=form.get('password').value"
                                   [value]="emp.password"
                                 >
                                   

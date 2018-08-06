@@ -75,6 +75,8 @@ export class UpdateComponent implements OnInit {
 
 
 
+
+
   updateEmp() {
     let updateEmp = {
       _id:true?this.form.value._id:this.emp._id,
@@ -89,9 +91,9 @@ export class UpdateComponent implements OnInit {
     };
     console
     console.log(JSON.stringify(updateEmp));
-console.log(updateEmp);
+
 console.log(this.emp);
-    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/update/update2", updateEmp).subscribe(response => {
+    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/update/update2", this.emp).subscribe(response => {
     
       console.log(response);
 
