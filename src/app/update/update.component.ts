@@ -1,3 +1,4 @@
+import { LoginService } from './../login.service';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -23,10 +24,10 @@ export class UpdateComponent implements OnInit {
     cpassword: new FormControl("",Validators.required)
   });
 
+  
 
 
-
-  constructor(private http:Http) {
+  constructor(private http:Http,private loginService:LoginService) {
     
   }
    emp = {
@@ -47,8 +48,20 @@ export class UpdateComponent implements OnInit {
   }
   getEmp(){
 
-    this.http.get(this.url).subscribe(response => {
+    this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/update/update1?emailId="+this.loginService.empEmail+"").subscribe(response => {
       console.log(response.json());
+    
+      this.emp._id=response.json()._id;
+      this.emp.empId=response.json().empId;
+      this.emp.name= response.json().name;
+      this.emp.designation=response.json().designation;
+      this.emp.mobileNo=response.json().mobileNo;
+      this.emp.emailId= response.json().emailId;
+      this.emp.salary=response.json().salary;
+      this.emp.gender= response.json().gender;
+      this.emp.password=response.json().password;
+
+
 
       console.log(response);
 
