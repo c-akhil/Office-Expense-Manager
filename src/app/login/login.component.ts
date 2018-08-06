@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
           
           this.loginService.isLogin=true;
           this.loginService.empEmail=this.form.value.email;
+          this.loginService.empId=response.json().empId;
           console.log("login success");
         }
         else  if(response.json().statusMessage=="Invalid emailId/password")
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
           this.statusMessage="Invalid Password/Email";
           this.loginService.isLogin=false;
           this.loginService.empEmail='';
+          this.loginService.empId=null;
         }
     
       }

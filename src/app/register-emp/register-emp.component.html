@@ -36,19 +36,19 @@
                             
                             >
                             <option value="Dev" >Dev</option>
-                            <option value="Dev" >DevLead</option>
-                            <option value="Dev" >Tester</option>
-                            <option value="Dev" >Test Lead</option>
-                            <option value="Dev" >Consultant</option>
-                            <option value="Dev" >Sr.Consultant</option>
-                            <option value="Dev" >Trainee</option>
-                            <option value="Dev" >Product Manager</option>
-                            <option value="Dev" >SEO Analyst</option>
-                            <option value="Dev" >Business Analyst</option>
-                            <option value="Dev" >Digital Marketing Executive</option>
-                            <option value="Dev" >Digital Marketing Manager</option>
-                            <option value="Dev" >CEO</option>
-                            <option value="Dev" >HR</option>
+                            <option value="DevLead" >DevLead</option>
+                            <option value="Tester" >Tester</option>
+                            <option value="Test Lead" >Test Lead</option>
+                            <option value="Consultant" >Consultant</option>
+                            <option value="Sr.Consultant" >Sr.Consultant</option>
+                            <option value="Trainee" >Trainee</option>
+                            <option value="Product Manager" >Product Manager</option>
+                            <option value="SEO Analyst" >SEO Analyst</option>
+                            <option value="Business Analyst" >Business Analyst</option>
+                            <option value="Digital Marketing Executive" >Digital Marketing Executive</option>
+                            <option value="Digital Marketing Manager" >Digital Marketing Manager</option>
+                            <option value="CEO" >CEO</option>
+                            <option value="HR" >HR</option>
                             </select>
                           </div>
                           <div class="alert alert-danger" *ngIf="form.get('designation').touched && form.get('designation').invalid">
@@ -76,8 +76,9 @@
                             <input
                               formControlName="mobileNo"
                               id="mobileNo"
-                              minlength="10"
+                             
                               maxlength="10"
+                              
                               type="number"
                               class="form-control"
                               (change)="print()"
@@ -171,7 +172,7 @@
                         </div>
                         
                           
-                            <button class="btn btn-primary" (click)="createEmp()" [disabled]="form.invalid && (  form.get('password').value==form.get('cpassword').value ) " >Submit </button>
+                            <button class="btn btn-primary" (click)="createEmp()" [disabled]="form.invalid || (  ! form.get('password').value==form.get('cpassword').value ) " >Submit </button>
 
                           
                         </form>

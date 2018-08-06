@@ -32,7 +32,7 @@ export class ExpenseComponent implements OnInit {
    date:  Date.parse("" + this.form.value.date as string) ,
    expense:this.form.value.spentAmount,
    collection:this.form.value.collectAmount,
-   emailId:this.loginService.empEmail
+   empId:this.loginService.empId
   };
 
   console.log(JSON.stringify(expense));
