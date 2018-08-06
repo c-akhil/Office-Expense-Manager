@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Http } from "@angular/http";
+import { CustomValidation } from "../CustomValidation";
 
 @Component({
   selector: "register-emp",
@@ -16,9 +17,10 @@ export class RegisterEmpComponent implements OnInit {
     designation: new FormControl("" ,Validators.required),
     salary:  new FormControl("" ,Validators.required),
     mobileNo: new FormControl("",[Validators.required]),
-    email: new FormControl("",[Validators.required,Validators.email]),
+    email: new FormControl("",[Validators.required,Validators.email,CustomValidation.cannotContainSpace,CustomValidation.mustContainDotforEmail]),
     gender: new FormControl("",Validators.required),
-    password: new FormControl("",Validators.required)
+    password: new FormControl("",[Validators.required,CustomValidation.mustContainOneSpecialCharacter]),
+    cpassword: new FormControl("",Validators.required)
   });
 
   constructor(private http: Http) {

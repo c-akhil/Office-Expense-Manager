@@ -34,16 +34,16 @@
                                   type="password"
                                   placeholder="Password"
                                   class="form-control">
-                                  <div *ngIf="statusMessage!=''" class="alert alert-danger">
-                                    {{statusMessage}}
-                                  </div>
+                                 
                                 </div>
                                 <div class="alert alert-danger form-group" *ngIf="form.get('password').touched && form.get('password').invalid">
                             
                                 Invalid Password
   
                                 </div>
-                            
+                                <div *ngIf="statusMessage!=''" class="alert alert-danger">
+                                    {{statusMessage}}
+                                  </div>
                                 <button class="btn btn-primary" (click)="login(email)" [disabled]="form.invalid" >Login </button>
                          
                             </form>

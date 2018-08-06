@@ -26,20 +26,20 @@ export class LoginComponent implements OnInit {
 
   login(email){
     let emp={
-    "email":email,
+    "emailId":this.form.value.email,
       "password":this.form.value.password
       }
    
     console.log(JSON.stringify(emp));
-     this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/login/login?email="+this.form.value.email+"&password="+this.form.value.password  )
-    .subscribe(
+     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/login/login" ,emp).subscribe(
       response =>{
-        // console.log(response.json() );
-        if(response.json())
+        console.log(response.json() );
+        console.log(response);
+        if(response.status==200)
         {
           
           this.loginService.isLogin=true;
-          
+          this.loginService.empEmail=this.form.value.email;
           console.log("login success");
         }
         else{
@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
         }
     
       }
-
-    ) 
+    )
+    
   }
 
 }

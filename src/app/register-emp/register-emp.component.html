@@ -95,8 +95,10 @@
                               class="form-control">
                               
                           </div>
+                         
                           <div class="alert alert-danger" *ngIf="form.get('email').touched && form.get('email').invalid">
                               Invalid Email
+                             
                             </div>
                             <div>
                               Gender
@@ -138,14 +140,40 @@
                             #password
                             (change)="print()"
                           >
+                          
+                        </div>
+               
                           <div class="alert alert-danger" *ngIf="form.get('password').touched && form.get('password').invalid">
                             
                               Invalid Password
+                              <div *ngIf="form.get('password').errors.mustContainOneSpecialCharacter">
+                                must Contain OneSpecial Character
+                              </div>
 
                           </div>
-                            <button class="btn btn-primary" (click)="createEmp()" [disabled]="form.invalid" >Submit </button>
-
+                          <div class="form-group" >
+                            <label for="password" >Confirm Password </label>
+                            <input
+                              formControlName="cpassword"
+                              id="cpassword"
+                              type="password"
+                              class="form-control"
+                              minlength="6"
+                              maxlength="12"
+                              #cpassword
+                              (change)="print()"
+                            >
+                            
                           </div>
+                          <div class="alert alert-danger" *ngIf="form.get('password').value != form.get('cpassword').value">
+                          Password does't Match
+
+                        </div>
+                        
+                          
+                            <button class="btn btn-primary" (click)="createEmp()" [disabled]="form.invalid && (  form.get('password').value==form.get('cpassword').value ) " >Submit </button>
+
+                          
                         </form>
 
                     </div>
