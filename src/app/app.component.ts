@@ -11,5 +11,10 @@ export class AppComponent {
   constructor(private loginService:LoginService){
     
   }
+  logout()
+  {
+    this.loginService.isLogin=false ;
+    this.loginService.empEmail='';
+  }
   
 }

@@ -1,3 +1,4 @@
+import { LoginService } from './../login.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -17,7 +18,7 @@ export class ExpenseComponent implements OnInit {
    
   });
 
-  constructor(private http:Http) { 
+  constructor(private http:Http,private loginService:LoginService) { 
 
    }
 
@@ -25,10 +26,26 @@ export class ExpenseComponent implements OnInit {
   }
 
   submit(){
-     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/login/login1",this.form.value )
+
+  let expense= {
+    purposeName:this.form.value.expense,
+   date:  Date.parse("" + this.form.value.date as string) ,
+   expense:this.form.value.spentAmount,
+   collection:this.form.value.collectAmount,
+   emailId:this.loginService.empEmail
+  };
+
+  console.log(JSON.stringify(expense));
+
+
+     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/expense/expense1",expense )
     .subscribe(
       response =>{
         console.log(response);
+        alert(response.json().statusMessage);
+        
+
+
       }
 
     ) 

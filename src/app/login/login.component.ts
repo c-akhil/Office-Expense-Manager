@@ -2,6 +2,7 @@ import { LoginService } from './../login.service';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomValidation } from '../CustomValidation';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   form= new FormGroup ({
-    email:new FormControl("",[Validators.required,Validators.email]),
+    email: new FormControl("",[Validators.required,Validators.email]),
    password:new FormControl("",[Validators.required]),
     
   });
@@ -35,15 +36,18 @@ export class LoginComponent implements OnInit {
       response =>{
         console.log(response.json() );
         console.log(response);
-        if(response.status==200)
+        if(response.json().statusMessage=="Login Success")
         {
           
           this.loginService.isLogin=true;
           this.loginService.empEmail=this.form.value.email;
           console.log("login success");
         }
-        else{
+        else  if(response.json().statusMessage=="Invalid emailId/password")
+        {
           this.statusMessage="Invalid Password/Email";
+          this.loginService.isLogin=false;
+          this.loginService.empEmail='';
         }
     
       }

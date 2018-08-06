@@ -52,7 +52,7 @@
          <li class="nav-item"  [hidden]="!this.loginService.isLogin"
          [ngClass]="{'active': (isSelected==7)}"
          >
-            <a class="nav-link" (click)="this.loginService.isLogin=false" >Logout</a>
+            <a class="nav-link" (click)="logout()" >Logout</a>
          </li>
        
       </ul>

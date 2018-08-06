@@ -31,15 +31,15 @@ export class UpdateComponent implements OnInit {
     
   }
    emp = {
-    _id:'',
-    empId:'',
-    name:"" ,
-    designation:"",
-    mobileNo: '',
-    emailId: '',
-    salary:'',
-    gender: '',
-    password: ''
+    _id:'aaaaa',
+    empId:'aaaaaaaa',
+    name:"aaaaaaa" ,
+    designation:"Dev",
+    mobileNo: '99999999999',
+    emailId: 'aaaa@gmail.com',
+    salary:'100000',
+    gender: 'Male',
+    password: '123456@'
 
   };
 
@@ -72,4 +72,31 @@ export class UpdateComponent implements OnInit {
 
   }
 
+
+
+
+  updateEmp() {
+    let updateEmp = {
+      _id:true?this.form.value._id:this.emp._id,
+      empId:this.form.value.empId,
+      name: this.form.value.name,
+      designation: this.form.value.designation,
+      mobileNo: this.form.value.mobileNo,
+      emailId: this.form.value.email,
+      salary:this.form.value.salary,
+      gender: this.form.value.gender,
+      password: this.form.value.password
+    };
+    console
+    console.log(JSON.stringify(updateEmp));
+console.log(updateEmp);
+console.log(this.emp);
+    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/update/update2", updateEmp).subscribe(response => {
+    
+      console.log(response);
+
+     
+    });
+
+}
 }
