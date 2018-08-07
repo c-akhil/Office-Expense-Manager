@@ -1,16 +1,15 @@
-import { LoginService } from './../login.service';
-import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidation } from '../CustomValidation';
-import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
+import { Http } from '@angular/http';
 
 @Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class UpdateComponent implements OnInit {
+export class ProfileComponent implements OnInit{
   url:string="http://192.168.2.81:8080/OfficeExpenseManager/update/update1";
   form = new FormGroup({
     name: new FormControl("" ,Validators.required),
@@ -25,7 +24,7 @@ export class UpdateComponent implements OnInit {
     cpassword: new FormControl("",Validators.required)
   });
 
-  constructor(private http:Http,private loginService:LoginService,private router:Router) {
+  constructor(private http:Http,private loginService:LoginService) {
     
   }
    emp = {
@@ -91,8 +90,7 @@ console.log(this.emp);
     
       console.log(response);
       alert(response.json().statusMessage);
-      if(response.json().statusMessage=='Update Success')
-      this.router.navigateByUrl('/profile');
+
      
     });
 

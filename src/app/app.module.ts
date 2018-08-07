@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { GraphViewComponent } from './graph-view/graph-view.component';
 import { ChartsModule } from 'ng2-charts';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ChartsModule } from 'ng2-charts';
     UpdateComponent,
     LoginComponent,
     ExpenseComponent,
-    GraphViewComponent
+    GraphViewComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,10 @@ import { ChartsModule } from 'ng2-charts';
             path:"register",
             component:RegisterEmpComponent
           },
+          {
+            path:"profile",
+            component: ProfileComponent
+          }, 
           {
             path:"update",
             component:UpdateComponent

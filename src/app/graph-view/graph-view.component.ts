@@ -17,7 +17,7 @@ export class GraphViewComponent {
   public barChartLegend:boolean = true;
  
   public barChartData:any[] = [
-    {data: this.loginservice.graphExpense, label: 'Requested'},
+    {data: this.loginservice.graphExpense, label: 'Expense'},
     {data: this.loginservice.graphCollection, label: 'Collected'}
   ];
  

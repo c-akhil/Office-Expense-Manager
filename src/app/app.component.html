@@ -10,11 +10,11 @@
         </li>
 
         <li class="nav-item" 
-          routerLink="/update" 
+          routerLink="/profile" 
           [ngClass]="{'active': (isSelected==2)}" 
           [hidden]="!this.loginService.isLogin"
         >
-          <a class="nav-link" (click)="isSelected=2" >Update</a>
+          <a class="nav-link" (click)="isSelected=2" >Profile</a>
         </li>
 
         <li class="nav-item" 

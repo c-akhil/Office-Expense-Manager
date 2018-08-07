@@ -6,7 +6,7 @@
                 <!-- form card login -->
                 <div class="card rounded-0">
                     <div class="card-header">
-                          <h3 class="mb-0">Update</h3>
+                          <h3 class="mb-0">Profile</h3>
                     </div>
                     <div class="card-body">
                       <form [formGroup]="form">
@@ -38,6 +38,7 @@
                           type="text"
                           class="form-control"
                           [value]="emp.name"
+                          disabled
                           (change)="emp.name=form.get('name').value"
                         >
                   </div>
@@ -49,6 +50,7 @@
                           type="text"
                           placeholder="Designation"
                           class="form-control"
+                          disabled
                           (change)="emp.designation=form.get('designation').value"
                         
                         >
@@ -75,6 +77,7 @@
                       minlength="10"
                       maxlength="10"
                       type="number"
+                      disabled
                       class="form-control"
                       [value]="emp.mobileNo"
                       (change)="emp.mobileNo=form.get('mobileNo').value"
@@ -86,6 +89,7 @@
                               id="email"
                               type="email"
                               class="form-control"
+                              disabled
                               [value]="emp.emailId"
                               (change)="emp.emailId=form.get('email').value"
                             >
@@ -99,6 +103,7 @@
                               minlength="3"
                               maxlength="10"
                               type="number"
+                              disabled
                               class="form-control"
                               (change)="emp.salary=form.get('salary').value"
                               [value]="emp.salary"
@@ -112,6 +117,7 @@
                               type="text"
                               placeholder="gender"
                               class="form-control"
+                              disabled
                               (change)="emp.gender=form.get('gender').value"
                             
                             
@@ -130,6 +136,7 @@
                                   id="password"
                                   type="password"
                                   class="form-control"
+                                  disabled
                                   (change)="emp.password=form.get('password').value"
                                   [value]="emp.password"
                                 >
@@ -141,6 +148,7 @@
                                   formControlName="cpassword"
                                   id="cpassword"
                                   type="password"
+                                  disabled
                                   class="form-control"
                                   
                                   
@@ -148,7 +156,7 @@
                                   
                         </div>
                        
-                        <button class="btn btn-primary" (click)="updateEmp()"  >Update </button>
+                        <button class="btn btn-primary"  routerLink="/update" >Edit </button>
 
                         
 

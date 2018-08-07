@@ -28,6 +28,9 @@ export class AppComponent {
     this.loginService.graphCollection=[];
     this.loginService.graphDates=[];
     this.loginService.graphExpense=[];
+    this.router.navigateByUrl('/login');
+   
+
   }
   
 }
