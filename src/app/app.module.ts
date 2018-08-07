@@ -12,7 +12,8 @@ import { InvalidComponent } from './invalid/invalid.component';
 import { UpdateComponent } from './update/update.component';
 import { LoginComponent } from './login/login.component';
 import { ExpenseComponent } from './expense/expense.component';
-
+import { GraphViewComponent } from './graph-view/graph-view.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,12 @@ import { ExpenseComponent } from './expense/expense.component';
     InvalidComponent,
     UpdateComponent,
     LoginComponent,
-    ExpenseComponent
+    ExpenseComponent,
+    GraphViewComponent
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
@@ -38,6 +41,10 @@ import { ExpenseComponent } from './expense/expense.component';
           {
             path:"graph",
             component:GraphComponent
+          },
+          {
+            path:"graph-view",
+            component:GraphViewComponent
           },
           {
             path:"register",

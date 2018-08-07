@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Component } from '@angular/core';
 @Component({
@@ -8,13 +9,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isSelected=1;
   // isLogin:boolean=this.loginService.isLogin;
-  constructor(private loginService:LoginService){
+  constructor(private loginService:LoginService,private router:Router){
     
   }
+  ngOnInit(){
+  if(this.loginService.isLogin==false ){
+    this.router.navigateByUrl('/login');
+    
+  }
+
+}
+
   logout()
   {
     this.loginService.isLogin=false ;
     this.loginService.empEmail='';
+    this.loginService.empId='';
+    this.loginService.graphCollection=[];
+    this.loginService.graphDates=[];
+    this.loginService.graphExpense=[];
   }
   
 }

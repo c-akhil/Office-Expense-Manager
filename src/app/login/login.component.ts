@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../login.service';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
@@ -12,13 +13,13 @@ import { CustomValidation } from '../CustomValidation';
 export class LoginComponent implements OnInit {
 
   form= new FormGroup ({
-    email: new FormControl("",[Validators.required,Validators.email]),
+    email: new FormControl("",[Validators.required,Validators.email,CustomValidation.cannotContainSpace,CustomValidation.mustContainDotforEmail]),
    password:new FormControl("",[Validators.required]),
     
   });
   statusMessage:string='';
 
-  constructor(private http:Http,private loginService:LoginService) { 
+  constructor(private http:Http,private loginService:LoginService,private router:Router) { 
 
    }
 
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
           this.loginService.empEmail=this.form.value.email;
           this.loginService.empId=response.json().empId;
           console.log("login success");
+          this.router.navigateByUrl('/');
         }
         else  if(response.json().statusMessage=="Invalid emailId/password")
         {
