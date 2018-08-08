@@ -11,12 +11,13 @@
                     <div class="card-body">
                       <form [formGroup]="form">
                         <div class="form-group" >
-                        <label for="_id" > ID </label>
+                        <label for="_id" hidden > ID </label>
                         <input type="text"
                         formControlName="_id"
                         id="_id"
                         class="form-control"
                         [value]="emp._id"
+                        hidden
                         disabled
                         >
                       </div>

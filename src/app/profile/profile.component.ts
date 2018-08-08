@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit{
 
   getEmp(){
 
-    this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/update/update1?emailId="+this.loginService.empEmail+"").subscribe(response => {
+    this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/update/update1?empId="+this.loginService.empId+"").subscribe(response => {
       console.log(response.json());
     
       this.emp._id=response.json()._id;

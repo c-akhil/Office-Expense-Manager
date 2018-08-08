@@ -11,12 +11,13 @@
                     <div class="card-body">
                       <form [formGroup]="form">
                         <div class="form-group" >
-                        <label for="_id" > ID </label>
+                        <label for="_id" hidden > ID </label>
                         <input type="text"
                         formControlName="_id"
                         id="_id"
                         class="form-control"
                         [value]="emp._id"
+                        hidden
                         disabled
                         >
                       </div>
@@ -47,6 +48,7 @@
                           formControlName="designation"
                           id="designation"
                           type="text"
+                          disabled
                           placeholder="Designation"
                           class="form-control"
                           (change)="emp.designation=form.get('designation').value"
@@ -98,6 +100,7 @@
                               id="salary"
                               minlength="3"
                               maxlength="10"
+                              disabled
                               type="number"
                               class="form-control"
                               (change)="emp.salary=form.get('salary').value"
