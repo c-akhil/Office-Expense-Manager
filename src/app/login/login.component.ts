@@ -24,6 +24,15 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.loginService.isLogin=false ;
+    this.loginService.empEmail='';
+    this.loginService.empId='';
+    this.loginService.graphCollection=[];
+    this.loginService.graphDates=[];
+    this.loginService.graphExpense=[];
+
+    
   }
 
   login(email){
