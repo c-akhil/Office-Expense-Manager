@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class UpdateComponent implements OnInit {
   url:string="http://192.168.2.81:8080/OfficeExpenseManager/update/update1";
+  deleteUrl:string="http://192.168.2.81:8080/OfficeExpenseManager/delete/delete1"+"?empId="+this.loginService.empId+"";
   form = new FormGroup({
     name: new FormControl("" ,Validators.required),
     _id:new FormControl(""),
@@ -47,7 +48,7 @@ export class UpdateComponent implements OnInit {
 
   getEmp(){
 
-    this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/update/update1?empId="+this.loginService.empId+"").subscribe(response => {
+    this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/profile/profile1?empId="+this.loginService.empId+"").subscribe(response => {
       console.log(response.json());
     
       this.emp._id=response.json()._id;
@@ -77,6 +78,7 @@ export class UpdateComponent implements OnInit {
       empId:this.form.value.empId,
       name: this.form.value.name,
       designation: this.form.value.designation,
+      status:'activate',
       mobileNo: this.form.value.mobileNo,
       emailId: this.form.value.email,
       salary:this.form.value.salary,
@@ -87,7 +89,7 @@ export class UpdateComponent implements OnInit {
     console.log(JSON.stringify(updateEmp));
 
 console.log(this.emp);
-    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/update/update2", this.emp).subscribe(response => {
+    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/update/update1", this.emp).subscribe(response => {
     
       console.log(response);
       alert(response.json().statusMessage);

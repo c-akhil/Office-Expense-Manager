@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       }
    
     console.log(JSON.stringify(emp));
-     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/login/login" ,emp).subscribe(
+     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/login/empLogin" ,emp).subscribe(
       response =>{
         console.log(response.json() );
         console.log(response);
@@ -62,7 +62,9 @@ export class LoginComponent implements OnInit {
           this.loginService.empEmail='';
           this.loginService.empId=null;
         }
-    
+        else{
+             alert(response.json().statusMessage);
+        }
       }
     )
     

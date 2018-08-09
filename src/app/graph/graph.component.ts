@@ -24,17 +24,17 @@ export class GraphComponent implements OnInit {
   getDate(){
     let s=Date.parse("" + this.form.value.sdate as string)
     let e=Date.parse("" + this.form.value.edate as string)
-    this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/graph/graph1?startDate="+s+"&endDate="+e+"&empId="+this.loginService.empId).subscribe(response => {
+    this.http.get("http://192.168.2.81:8080/OfficeExpenseManager/graph/graph2?startDate="+s+"&endDate="+e+"&empId="+this.loginService.empId).subscribe(response => {
     console.log(response.json());
 
     console.log("-------------");
     for(let i=0;i<response.json().length;i++){
      // if(response.json()[i].empId==this.loginService.empId)
       {
-        this.loginService.graphCollection.push(response.json()[i].collection);
-        this.loginService.graphExpense.push(response.json()[i].expense);
+        this.loginService.graphCollection.unshift(response.json()[i].expenseCollect);
+        this.loginService.graphExpense.unshift(response.json()[i].expenseSpent);
         let date = new Date(response.json()[i].date);
-        this.loginService.graphDates.push( date.toLocaleDateString() );
+        this.loginService.graphDates.unshift( date.toLocaleDateString() );
       }
 
     }

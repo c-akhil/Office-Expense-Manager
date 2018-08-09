@@ -2,7 +2,7 @@ import { LoginService } from './../login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'bar-chart-demo',
+  selector: 'bar-chart',
   templateUrl: './graph-view.component.html',
   styleUrls: ['./graph-view.component.css']
 })

@@ -30,15 +30,15 @@ export class ExpenseComponent implements OnInit {
   let expense= {
     purposeName:this.form.value.expense,
    date:  Date.parse("" + this.form.value.date as string) ,
-   expense:this.form.value.spentAmount,
-   collection:this.form.value.collectAmount,
+   expenseSpent:this.form.value.spentAmount,
+   expenseCollect:this.form.value.collectAmount,
    empId:this.loginService.empId
   };
 
   console.log(JSON.stringify(expense));
 
 
-     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/expense/expense1",expense )
+     this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/expense/expenseSpent",expense )
     .subscribe(
       response =>{
         console.log(response);
