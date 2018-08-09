@@ -38,8 +38,10 @@ export class GraphComponent implements OnInit {
       }
 
     }
-    this.loginService.graphCollection.push(1000);
-    this.loginService.graphExpense.push(1000);
+  if( this.loginService.graphCollection.length > 1 ){
+              this.loginService.graphCollection.push(1000);
+              this.loginService.graphExpense.push(1000);
+    }
     console.log("-------------");
     console.log(this.loginService.graphDates);
     console.log(this.loginService.graphCollection);

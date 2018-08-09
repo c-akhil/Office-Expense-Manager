@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidation } from '../CustomValidation';
 import { LoginService } from '../login.service';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +25,7 @@ export class ProfileComponent implements OnInit{
     cpassword: new FormControl("",Validators.required)
   });
 
-  constructor(private http:Http,private loginService:LoginService) {
+  constructor(private http:Http,private loginService:LoginService,private router:Router) {
     
   }
    emp = {
@@ -92,6 +93,34 @@ console.log(this.emp);
       alert(response.json().statusMessage);
 
      
+    });
+
+  }
+  Deactivate(){
+    let updateEmp = {
+      _id:true?this.form.value._id:this.emp._id,
+      empId:this.form.value.empId,
+      name: this.form.value.name,
+      status:'deactivate',
+      designation: this.form.value.designation,
+      mobileNo: this.form.value.mobileNo,
+      emailId: this.form.value.email,
+      salary:this.form.value.salary,
+      gender: this.form.value.gender,
+      password: this.form.value.password
+    };
+    console.log(updateEmp);
+   
+    this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/update/update1",updateEmp).subscribe(response => {
+      console.log(response.json());
+      this.loginService.isLogin=false ;
+      this.loginService.empEmail='';
+      this.loginService.empId='';
+      this.loginService.graphCollection=[];
+      this.loginService.graphDates=[];
+      this.loginService.graphExpense=[];
+      this.router.navigateByUrl('/login');
+      alert('Account Deativated');
     });
 
   }
