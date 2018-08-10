@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidation } from '../CustomValidation';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   });
   statusMessage:string='';
 
-  constructor(private http:Http,private loginService:LoginService,private router:Router) { 
+  constructor(private http:Http,private loginService:LoginService,private router:Router,private spinner: NgxSpinnerService) { 
 
    }
 
@@ -37,13 +38,14 @@ export class LoginComponent implements OnInit {
 
   login(email){
     let emp={
-    "emailId":this.form.value.email,
+    "emailId":(''+this.form.value.email).toLowerCase(),
       "password":this.form.value.password
       }
    
     console.log(JSON.stringify(emp));
+    this.spinner.show();
      this.http.post("http://192.168.2.81:8080/OfficeExpenseManager/login/empLogin" ,emp).subscribe(
-      response =>{
+      response =>{this.spinner.hide();
         console.log(response.json() );
         console.log(response);
         if(response.json().statusMessage=="Login Success")
@@ -67,7 +69,7 @@ export class LoginComponent implements OnInit {
         }
       }
     )
-    
+   
   }
 
 }

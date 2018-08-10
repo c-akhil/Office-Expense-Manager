@@ -1,7 +1,7 @@
 import { LoginService } from './../login.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-expense',
@@ -11,11 +11,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ExpenseComponent implements OnInit {
 
   form= new FormGroup ({
-    expense:new FormControl(),
-   date:new FormControl(),
-   spentAmount:new FormControl(),
-   collectAmount:new FormControl(),
-   
+    expense:new FormControl('',Validators.required),
+   date:new FormControl('',Validators.required),
+   spentAmount:new FormControl('',Validators.required),
+
   });
 
   constructor(private http:Http,private loginService:LoginService) { 

@@ -15,7 +15,7 @@ import { ExpenseComponent } from './expense/expense.component';
 import { GraphViewComponent } from './graph-view/graph-view.component';
 import { ChartsModule } from 'ng2-charts';
 import { ProfileComponent } from './profile/profile.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +35,7 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
+    NgxSpinnerModule,
     RouterModule.forRoot([
           {
             path:"",
